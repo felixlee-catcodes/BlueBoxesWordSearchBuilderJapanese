@@ -5,8 +5,8 @@ const int GRID_SIZE = 7;
 var builder = new WordSearchBuilder(GRID_SIZE, GRID_SIZE);
 
 builder
-.WithWords("apple", "orange", "melon")
-.WithDifficulty(Difficulty.Easy);
+.WithDifficulty(Difficulty.Easy)
+.WithWords("apple", "orange", "melon");
 
 var newPuzzle = builder.Build();
 Console.WriteLine(newPuzzle.Puzzle);
