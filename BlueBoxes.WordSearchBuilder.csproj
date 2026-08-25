@@ -25,7 +25,7 @@
     <PackageIcon>packageIcon.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <ProjectUrl>https://github.com/felixlee-catcodes/BlueBoxes.WordSearchBuilder/</ProjectUrl>
+    <ProjectUrl>https://github.com/felixlee-catcodes/BlueBoxesWordSearchBuilderJapanese</ProjectUrl>
     <PackageTags>WordSearch;Puzzle;iPuz;PuzzleSolver;PuzzleBuilder;PuzzleExport</PackageTags>
   </PropertyGroup>
 
