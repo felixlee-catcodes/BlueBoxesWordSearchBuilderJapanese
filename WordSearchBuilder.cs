@@ -32,6 +32,7 @@ public class WordSearchBuilder
     /// <param name="height">Grid Height</param>
     public WordSearchBuilder(int width, int height)
     {
+        //create new empty grid?
         Grid = GridExtensions.Initialize(width, height, WordPlacer.NullChar);
         WordPlacers = PlacerSets.GetSet(Difficulty.Medium);
     }
@@ -58,7 +59,7 @@ public class WordSearchBuilder
         Title = title;
         return this;
     }
-     
+
 
     /// <summary>
     /// Sets the SpaceFiller of the WordSearchBuilder

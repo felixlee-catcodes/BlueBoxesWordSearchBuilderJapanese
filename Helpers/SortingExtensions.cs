@@ -20,8 +20,11 @@ static class SortingExtensions
         return items.OrderByDescending(word => word.Sum(ScoreLetter)).ToList();
     }
 
+    //NEEDS ADAPTATION FOR HIRAGANA & KATAKANA 
+    //Pull in LIST OF CHARS/SYMBOLS FROM JSON FILES??
     private static int ScoreLetter(char letter)
     {
+        //This method captures the longest words but also the words with most vowels
         var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
         var weights = new int[] { 8, 2, 3, 4, 13, 2, 2, 6, 7, 1, 1, 4, 2, 7, 8, 2, 1, 6, 6, 9, 3, 1, 2, 1, 2, 1 };
 

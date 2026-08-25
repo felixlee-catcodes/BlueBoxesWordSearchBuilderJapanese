@@ -9,5 +9,6 @@ builder
 .WithDifficulty(Difficulty.Easy);
 
 var newPuzzle = builder.Build();
+Console.WriteLine(newPuzzle.Puzzle);
 
 Console.WriteLine("new puzzle created");
