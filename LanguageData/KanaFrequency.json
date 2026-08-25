@@ -1,0 +1,418 @@
+[
+  {
+    "Hiragana": "い",
+    "Occurrence": 5943
+  },
+  {
+    "Hiragana": "ん",
+    "Occurrence": 3682
+  },
+  {
+    "Hiragana": "か",
+    "Occurrence": 3590
+  },
+  {
+    "Hiragana": "う",
+    "Occurrence": 3551
+  },
+  {
+    "Hiragana": "た",
+    "Occurrence": 3489
+  },
+  {
+    "Hiragana": "の",
+    "Occurrence": 3334
+  },
+  {
+    "Hiragana": "は",
+    "Occurrence": 3331
+  },
+  {
+    "Hiragana": "し",
+    "Occurrence": 2828
+  },
+  {
+    "Hiragana": "に",
+    "Occurrence": 2388
+  },
+  {
+    "Hiragana": "を",
+    "Occurrence": 2012
+  },
+  {
+    "Hiragana": "く",
+    "Occurrence": 2011
+  },
+  {
+    "Hiragana": "て",
+    "Occurrence": 2008
+  },
+  {
+    "Hiragana": "が",
+    "Occurrence": 1980
+  },
+  {
+    "Hiragana": "こ",
+    "Occurrence": 1938
+  },
+  {
+    "Hiragana": "な",
+    "Occurrence": 1856
+  },
+  {
+    "Hiragana": "る",
+    "Occurrence": 1693
+  },
+  {
+    "Hiragana": "と",
+    "Occurrence": 1631
+  },
+  {
+    "Hiragana": "ま",
+    "Occurrence": 1500
+  },
+  {
+    "Hiragana": "で",
+    "Occurrence": 1463
+  },
+  {
+    "Hiragana": "き",
+    "Occurrence": 1433
+  },
+  {
+    "Hiragana": "だ",
+    "Occurrence": 1428
+  },
+  {
+    "Hiragana": "す",
+    "Occurrence": 1420
+  },
+  {
+    "Hiragana": "れ",
+    "Occurrence": 1415
+  },
+  {
+    "Hiragana": "つ",
+    "Occurrence": 1386
+  },
+  {
+    "Hiragana": "さ",
+    "Occurrence": 1192
+  },
+  {
+    "Hiragana": "お",
+    "Occurrence": 1111
+  },
+  {
+    "Hiragana": "あ",
+    "Occurrence": 1076
+  },
+  {
+    "Hiragana": "ら",
+    "Occurrence": 994
+  },
+  {
+    "Hiragana": "け",
+    "Occurrence": 878
+  },
+  {
+    "Hiragana": "も",
+    "Occurrence": 869
+  },
+  {
+    "Hiragana": "せ",
+    "Occurrence": 826
+  },
+  {
+    "Hiragana": "り",
+    "Occurrence": 823
+  },
+  {
+    "Hiragana": "わ",
+    "Occurrence": 817
+  },
+  {
+    "Hiragana": "ち",
+    "Occurrence": 761
+  },
+  {
+    "Hiragana": "じ",
+    "Occurrence": 718
+  },
+  {
+    "Hiragana": "え",
+    "Occurrence": 713
+  },
+  {
+    "Hiragana": "そ",
+    "Occurrence": 662
+  },
+  {
+    "Hiragana": "よ",
+    "Occurrence": 590
+  },
+  {
+    "Hiragana": "み",
+    "Occurrence": 576
+  },
+  {
+    "Hiragana": "め",
+    "Occurrence": 535
+  },
+  {
+    "Hiragana": "ど",
+    "Occurrence": 466
+  },
+  {
+    "Hiragana": "じょ",
+    "Occurrence": 464
+  },
+  {
+    "Hiragana": "ひ",
+    "Occurrence": 461
+  },
+  {
+    "Hiragana": "ほ",
+    "Occurrence": 434
+  },
+  {
+    "Hiragana": "や",
+    "Occurrence": 416
+  },
+  {
+    "Hiragana": "しょ",
+    "Occurrence": 416
+  },
+  {
+    "Hiragana": "ね",
+    "Occurrence": 350
+  },
+  {
+    "Hiragana": "ご",
+    "Occurrence": 350
+  },
+  {
+    "Hiragana": "ふ",
+    "Occurrence": 342
+  },
+  {
+    "Hiragana": "ろ",
+    "Occurrence": 321
+  },
+  {
+    "Hiragana": "ば",
+    "Occurrence": 289
+  },
+  {
+    "Hiragana": "しゅ",
+    "Occurrence": 273
+  },
+  {
+    "Hiragana": "しゃ",
+    "Occurrence": 266
+  },
+  {
+    "Hiragana": "きょ",
+    "Occurrence": 264
+  },
+  {
+    "Hiragana": "ぶ",
+    "Occurrence": 258
+  },
+  {
+    "Hiragana": "げ",
+    "Occurrence": 237
+  },
+  {
+    "Hiragana": "む",
+    "Occurrence": 227
+  },
+  {
+    "Hiragana": "べ",
+    "Occurrence": 217
+  },
+  {
+    "Hiragana": "ゆ",
+    "Occurrence": 215
+  },
+  {
+    "Hiragana": "りょ",
+    "Occurrence": 201
+  },
+  {
+    "Hiragana": "へ",
+    "Occurrence": 186
+  },
+  {
+    "Hiragana": "び",
+    "Occurrence": 181
+  },
+  {
+    "Hiragana": "ぎ",
+    "Occurrence": 180
+  },
+  {
+    "Hiragana": "ず",
+    "Occurrence": 172
+  },
+  {
+    "Hiragana": "じゅ",
+    "Occurrence": 167
+  },
+  {
+    "Hiragana": "ざ",
+    "Occurrence": 120
+  },
+  {
+    "Hiragana": "ちょ",
+    "Occurrence": 119
+  },
+  {
+    "Hiragana": "ぜ",
+    "Occurrence": 117
+  },
+  {
+    "Hiragana": "ぼ",
+    "Occurrence": 110
+  },
+  {
+    "Hiragana": "ぞ",
+    "Occurrence": 106
+  },
+  {
+    "Hiragana": "きゅ",
+    "Occurrence": 96
+  },
+  {
+    "Hiragana": "ちゅ",
+    "Occurrence": 91
+  },
+  {
+    "Hiragana": "ぐ",
+    "Occurrence": 80
+  },
+  {
+    "Hiragana": "ぎょ",
+    "Occurrence": 75
+  },
+  {
+    "Hiragana": "ぱ",
+    "Occurrence": 57
+  },
+  {
+    "Hiragana": "ぬ",
+    "Occurrence": 54
+  },
+  {
+    "Hiragana": "づ",
+    "Occurrence": 47
+  },
+  {
+    "Hiragana": "にゅ",
+    "Occurrence": 46
+  },
+  {
+    "Hiragana": "ちゃ",
+    "Occurrence": 31
+  },
+  {
+    "Hiragana": "きゃ",
+    "Occurrence": 31
+  },
+  {
+    "Hiragana": "ひょ",
+    "Occurrence": 25
+  },
+  {
+    "Hiragana": "じゃ",
+    "Occurrence": 25
+  },
+  {
+    "Hiragana": "ぽ",
+    "Occurrence": 22
+  },
+  {
+    "Hiragana": "びょ",
+    "Occurrence": 22
+  },
+  {
+    "Hiragana": "ぷ",
+    "Occurrence": 18
+  },
+  {
+    "Hiragana": "りゅ",
+    "Occurrence": 17
+  },
+  {
+    "Hiragana": "ひゃ",
+    "Occurrence": 9
+  },
+  {
+    "Hiragana": "ぴ",
+    "Occurrence": 9
+  },
+  {
+    "Hiragana": "ぴょ",
+    "Occurrence": 8
+  },
+  {
+    "Hiragana": "ぺ",
+    "Occurrence": 5
+  },
+  {
+    "Hiragana": "みょ",
+    "Occurrence": 4
+  },
+  {
+    "Hiragana": "ぎゅ",
+    "Occurrence": 4
+  },
+  {
+    "Hiragana": "りゃ",
+    "Occurrence": 3
+  },
+  {
+    "Hiragana": "ぎゃ",
+    "Occurrence": 3
+  },
+  {
+    "Hiragana": "みゃ",
+    "Occurrence": 2
+  },
+  {
+    "Hiragana": "びゃ",
+    "Occurrence": 1
+  },
+  {
+    "Hiragana": "にょ",
+    "Occurrence": 1
+  },
+  {
+    "Hiragana": "ぢ",
+    "Occurrence": 1
+  },
+  {
+    "Hiragana": "みゅ",
+    "Occurrence": 0
+  },
+  {
+    "Hiragana": "ぴゅ",
+    "Occurrence": 0
+  },
+  {
+    "Hiragana": "びゅ",
+    "Occurrence": 0
+  },
+  {
+    "Hiragana": "ひゅ",
+    "Occurrence": 0
+  },
+  {
+    "Hiragana": "ぴゃ",
+    "Occurrence": 0
+  },
+  {
+    "Hiragana": "にゃ",
+    "Occurrence": 0
+  }
+]
