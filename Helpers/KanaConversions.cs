@@ -14,15 +14,26 @@ public class KanaConversions
 
     private readonly string PATH = "/Users/felix/Desktop/WordSearchGenJapanese/LanguageData";
 
-    private const string HIRAGANA = "hiragana.son";
-    private const string KATAKANA = "katakana.son";
-    private const string KANAFREQ = "KanaFrequency.son";
+    private const string HIRAGANA = "hiragana.json";
+    private const string KATAKANA = "katakana.json";
+    private const string KANAFREQ = "KanaFrequency.json";
 
-    public static List<KanaUnit> GetKanaList()
+    private List<KanaObj> hiraganaList = new List<KanaObj>();
+    private List<KanaObj> katakanaList = new List<KanaObj>();
+    public static async void TestConversion()
     {
-        List<KanaUnit> KanaUnitList = new();
-        return KanaUnitList;
+        var kanaConversions = new KanaConversions();
+        var hiraganaList = kanaConversions.GetKanaObjList(ListType.Hiragana);
+        var katakanaList = kanaConversions.GetKanaObjList(ListType.Katakana);
+        Console.WriteLine($"test result: {hiraganaList.Result}");
+        Console.WriteLine($"test result: {katakanaList.Result}");
     }
+
+    // public static List<KanaUnit> GetKanaList()
+    // {
+    //     List<KanaUnit> KanaUnitList = new();
+    //     return KanaUnitList;
+    // }
 
     private List<KanaUnit> MergeLists()
     {
@@ -30,17 +41,19 @@ public class KanaConversions
         throw new NotImplementedException();
     }
 
-    private List<KanaObj> KanaObjList(ListType listType)
+    private async Task<List<KanaObj>> GetKanaObjList(ListType listType)
     {
         List<KanaObj> deserializedList = new();
         switch (listType)
         {
             case ListType.Hiragana:
+                deserializedList = await DeserializeJson(HIRAGANA);
                 break;
             case ListType.Katakana:
+                deserializedList = await DeserializeJson(KATAKANA);
                 break;
         }
-        throw new NotImplementedException();
+        return deserializedList;
 
     }
 
@@ -60,6 +73,7 @@ public class KanaObjList
 
 public class KanaObj
 {
+    [JsonProperty("char_id")]
     public required string CharId { get; set; }
     public required string Character { get; set; }
     public required string Romanization { get; set; }
