@@ -14,7 +14,13 @@ using WordSearchGenJapanese.Helpers;
 
 // Console.WriteLine("new puzzle created");
 
-Console.WriteLine("start running project...");
-var conversions = new KanaConversions();
-await conversions.TestConversion();
-Console.WriteLine("...program ended");
+// Console.WriteLine("start running project...");
+// var conversions = new KanaConversions();
+// await conversions.TestConversion();
+// Console.WriteLine("...program ended");
+
+
+List<KanaUnit> kanaList2 = await KanaConversions.GetKanaFrequencyList();
+
+
+

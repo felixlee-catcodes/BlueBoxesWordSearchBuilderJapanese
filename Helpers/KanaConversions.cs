@@ -18,24 +18,31 @@ public class KanaConversions
     private const string KATAKANA = "katakana.json";
     private const string KANAFREQ = "KanaFrequency.json";
 
-    public async Task TestConversion()
+    // public async Task TestConversion()
+    // {
+    //     Console.WriteLine($"TestConversion called...");
+    //     var kanaConversions = new KanaConversions();
+    //     List<KanaObj> hiraganaList = await kanaConversions.GetKanaObjList(ListType.Hiragana);
+    //     List<KanaObj> katakanaList = await kanaConversions.GetKanaObjList(ListType.Katakana);
+    //     List<KanaUnit> kanaLookupList = await kanaConversions.MergeKanaAndFrequencyLists();
+    // }
+
+    // public async Task<List<KanaUnit>> GetKanaFrequencyList()
+    // {
+    //     return await MergeKanaAndFrequencyLists();
+    // }
+
+    public static async Task<List<KanaUnit>> GetKanaFrequencyList()
     {
-        Console.WriteLine($"TestConversion called...");
-        var kanaConversions = new KanaConversions();
-        List<KanaObj> hiraganaList = await kanaConversions.GetKanaObjList(ListType.Hiragana);
-        List<KanaObj> katakanaList = await kanaConversions.GetKanaObjList(ListType.Katakana);
-        List<KanaUnit> kanaLookupList = await kanaConversions.MergeKanaAndFrequencyLists();
+        var conversions = new KanaConversions();
+        return await conversions.MergeKanaAndFrequencyLists();
     }
 
     private async Task<List<KanaUnit>> MergeKanaAndFrequencyLists()
     {
-        var kanaConversions = new KanaConversions();
-
-        List<FreqUnit> frequencyList = await kanaConversions.GetFrequencyList();
-
+        List<FreqUnit> frequencyList = await GetFrequencyList();
 
         List<KanaUnit> kanaList = await MergeHiraAndKata();
-        Console.WriteLine($"kana list len: {kanaList.Count}");
 
         foreach (KanaUnit unit in kanaList)
         {
@@ -56,14 +63,10 @@ public class KanaConversions
 
     private async Task<List<KanaUnit>> MergeHiraAndKata()
     {
-        Console.WriteLine("MergeHiraAndKata method called");
-        var kanaConversions = new KanaConversions();
         //get lists by kana/list type
-        List<KanaObj> hiraganaList = await kanaConversions.GetKanaObjList(ListType.Hiragana);
-        List<KanaObj> katakanaList = await kanaConversions.GetKanaObjList(ListType.Katakana);
+        List<KanaObj> hiraganaList = await GetKanaObjList(ListType.Hiragana);
+        List<KanaObj> katakanaList = await GetKanaObjList(ListType.Katakana);
 
-        Console.WriteLine($"hira list count: {hiraganaList.Count}");
-        Console.WriteLine($"kata list count: {katakanaList.Count}");
         List<KanaUnit> kanaList = new List<KanaUnit>();
 
         for (int i = 0; i < hiraganaList.Count; i++)
@@ -79,12 +82,7 @@ public class KanaConversions
                 };
                 kanaList.Add(kanaUnit);
             }
-            else
-            {
-                Console.WriteLine($"H: {hiraganaList[i].Character}\tCID:{hiraganaList[i].CharId}\tR:{hiraganaList[i].Romanization}");
-            }
         }
-        Console.WriteLine($"kana list count: {kanaList.Count}");
         return kanaList;
     }
 
@@ -112,10 +110,8 @@ public class KanaConversions
     private async Task<List<KanaObj>> DeserializeKanaJson(string extension)
     {
         string path = Path.Combine(PATH, extension);
-        Console.WriteLine($"Path: {path}");
 
         string json = await File.ReadAllTextAsync(path);
-        Console.WriteLine($"JSON length: {json.Length}");
 
         var result = JsonConvert.DeserializeObject<List<KanaObj>>(json);
 
@@ -125,17 +121,15 @@ public class KanaConversions
     private async Task<List<FreqUnit>> DeserializeFreqJson(string extension)
     {
         string path = Path.Combine(PATH, extension);
-        Console.WriteLine($"Path: {path}");
 
         string json = await File.ReadAllTextAsync(Path.Combine(path));
-        Console.WriteLine($"JSON length: {json.Length}");
 
         var result = JsonConvert.DeserializeObject<List<FreqUnit>>(json);
 
         return result ?? new List<FreqUnit>();
     }
 }
-
+#region models
 public class FreqUnit
 {
     [JsonProperty("Hiragana")]
@@ -159,3 +153,4 @@ public class KanaUnit
     public required string Romaji { get; set; }
     public int? Frequency { get; set; }
 }
+#endregion
