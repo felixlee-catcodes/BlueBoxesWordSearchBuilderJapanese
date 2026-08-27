@@ -88,10 +88,10 @@ public class WordSearchBuilder
     /// </summary>
     /// <param name="words">List of words to add</param>
     /// <returns>Current WordSearchBuilder</returns>
-    public async Task<WordSearchBuilder> WithWords(params string[] words)
+    public WordSearchBuilder WithWords(params string[] words)
     {
         //*** PLUG-IN SortByComplexityJP here 
-        foreach (var currentWord in await words.SortByComplexityJP())
+        foreach (var currentWord in words.SortByComplexity())
         {
             Console.WriteLine($" current word: {currentWord}");
         }

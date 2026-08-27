@@ -20,30 +20,30 @@ static class SortingExtensions
     /// <returns></returns>
     public static IList<string> SortByComplexity(this IList<string> items)
     {
-        return items.OrderByDescending(word => word.Sum(ScoreLetter)).ToList();
+        return items.OrderByDescending(word => word.Sum(ScoreLetterJP)).ToList();
     }
 
     //SORT BY COMPLEXITY JP VERSION
-    public static async Task<IList<string>> SortByComplexityJP(this IList<string> words)
-    {
-        var scoredWords = new List<(string Word, int Score)>();
+    // public static async Task<IList<string>> SortByComplexityJP(this IList<string> words)
+    // {
+    //     var scoredWords = new List<(string Word, int Score)>();
 
-        foreach (string word in words)
-        {
-            int score = 0;
+    //     foreach (string word in words)
+    //     {
+    //         int score = 0;
 
-            foreach (char kana in word)
-            {
-                score += await ScoreLetterJP(kana);
-            }
-            scoredWords.Add((word, score));
-        }
+    //         foreach (char kana in word)
+    //         {
+    //             score += ScoreLetterJP(kana);
+    //         }
+    //         scoredWords.Add((word, score));
+    //     }
 
-        return scoredWords
-        .OrderByDescending(item => item.Score)
-        .Select(item => item.Word)
-        .ToList();
-    }
+    //     return scoredWords
+    //     .OrderByDescending(item => item.Score)
+    //     .Select(item => item.Word)
+    //     .ToList();
+    // }
 
     //!!!NEEDS ADAPTATION FOR HIRAGANA & KATAKANA 
     //Pull in LIST OF CHARS/SYMBOLS FROM JSON FILES??
@@ -60,9 +60,9 @@ static class SortingExtensions
 
     }
 
-    private static async Task<int> ScoreLetterJP(char letter)
+    private static int ScoreLetterJP(char letter)
     {
-        List<KanaUnit> kanaLookupList = await KanaConversions.GetKanaFrequencyList();
+        List<KanaUnit> kanaLookupList = KanaConversions.GetKanaFrequencyList();
         var mojiChars = CharactersToString(kanaLookupList).ToCharArray();
         var mojiWeights = CharWeights(kanaLookupList);
 
