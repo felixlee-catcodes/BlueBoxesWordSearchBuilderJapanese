@@ -18,27 +18,74 @@ public class KanaConversions
     private const string KATAKANA = "katakana.json";
     private const string KANAFREQ = "KanaFrequency.json";
 
-    private List<KanaObj> hiraganaList = new List<KanaObj>();
-    private List<KanaObj> katakanaList = new List<KanaObj>();
-    public static async void TestConversion()
+    public async Task TestConversion()
     {
+        Console.WriteLine($"TestConversion called...");
         var kanaConversions = new KanaConversions();
-        var hiraganaList = kanaConversions.GetKanaObjList(ListType.Hiragana);
-        var katakanaList = kanaConversions.GetKanaObjList(ListType.Katakana);
-        Console.WriteLine($"test result: {hiraganaList.Result}");
-        Console.WriteLine($"test result: {katakanaList.Result}");
+        List<KanaObj> hiraganaList = await kanaConversions.GetKanaObjList(ListType.Hiragana);
+        List<KanaObj> katakanaList = await kanaConversions.GetKanaObjList(ListType.Katakana);
+        List<KanaUnit> kanaLookupList = await kanaConversions.MergeKanaAndFrequencyLists();
     }
 
-    // public static List<KanaUnit> GetKanaList()
-    // {
-    //     List<KanaUnit> KanaUnitList = new();
-    //     return KanaUnitList;
-    // }
-
-    private List<KanaUnit> MergeLists()
+    private async Task<List<KanaUnit>> MergeKanaAndFrequencyLists()
     {
-        //TODO: merge lists into a single
-        throw new NotImplementedException();
+        var kanaConversions = new KanaConversions();
+
+        List<FreqUnit> frequencyList = await kanaConversions.GetFrequencyList();
+
+
+        List<KanaUnit> kanaList = await MergeHiraAndKata();
+        Console.WriteLine($"kana list len: {kanaList.Count}");
+
+        foreach (KanaUnit unit in kanaList)
+        {
+            int index = frequencyList.FindIndex(x => x.Kana == unit.Hiragana);
+
+            if (index != -1)
+            {
+                unit.Frequency = frequencyList[index].Frequency;
+            }
+            else
+            {
+                unit.Frequency = 0;
+            }
+
+        }
+        return kanaList;
+    }
+
+    private async Task<List<KanaUnit>> MergeHiraAndKata()
+    {
+        Console.WriteLine("MergeHiraAndKata method called");
+        var kanaConversions = new KanaConversions();
+        //get lists by kana/list type
+        List<KanaObj> hiraganaList = await kanaConversions.GetKanaObjList(ListType.Hiragana);
+        List<KanaObj> katakanaList = await kanaConversions.GetKanaObjList(ListType.Katakana);
+
+        Console.WriteLine($"hira list count: {hiraganaList.Count}");
+        Console.WriteLine($"kata list count: {katakanaList.Count}");
+        List<KanaUnit> kanaList = new List<KanaUnit>();
+
+        for (int i = 0; i < hiraganaList.Count; i++)
+        {
+            int kataIndex = katakanaList.FindIndex(k => k.Romanization == hiraganaList[i].Romanization);
+            if (kataIndex != -1)
+            {
+                var kanaUnit = new KanaUnit
+                {
+                    Hiragana = hiraganaList[i].Character,
+                    Katakana = katakanaList[kataIndex].Character,
+                    Romaji = hiraganaList[i].Romanization
+                };
+                kanaList.Add(kanaUnit);
+            }
+            else
+            {
+                Console.WriteLine($"H: {hiraganaList[i].Character}\tCID:{hiraganaList[i].CharId}\tR:{hiraganaList[i].Romanization}");
+            }
+        }
+        Console.WriteLine($"kana list count: {kanaList.Count}");
+        return kanaList;
     }
 
     private async Task<List<KanaObj>> GetKanaObjList(ListType listType)
@@ -47,28 +94,54 @@ public class KanaConversions
         switch (listType)
         {
             case ListType.Hiragana:
-                deserializedList = await DeserializeJson(HIRAGANA);
+                deserializedList = await DeserializeKanaJson(HIRAGANA);
                 break;
             case ListType.Katakana:
-                deserializedList = await DeserializeJson(KATAKANA);
+                deserializedList = await DeserializeKanaJson(KATAKANA);
                 break;
         }
         return deserializedList;
 
     }
 
-    private async Task<List<KanaObj>> DeserializeJson(string extension)
+    private async Task<List<FreqUnit>> GetFrequencyList()
     {
-        string json = await File.ReadAllTextAsync(Path.Combine(PATH, extension));
+        return await DeserializeFreqJson(KANAFREQ);
+    }
 
-        return JsonConvert.DeserializeObject<List<KanaObj>>(json) ?? new List<KanaObj>();
+    private async Task<List<KanaObj>> DeserializeKanaJson(string extension)
+    {
+        string path = Path.Combine(PATH, extension);
+        Console.WriteLine($"Path: {path}");
+
+        string json = await File.ReadAllTextAsync(path);
+        Console.WriteLine($"JSON length: {json.Length}");
+
+        var result = JsonConvert.DeserializeObject<List<KanaObj>>(json);
+
+        return result ?? new List<KanaObj>();
+    }
+
+    private async Task<List<FreqUnit>> DeserializeFreqJson(string extension)
+    {
+        string path = Path.Combine(PATH, extension);
+        Console.WriteLine($"Path: {path}");
+
+        string json = await File.ReadAllTextAsync(Path.Combine(path));
+        Console.WriteLine($"JSON length: {json.Length}");
+
+        var result = JsonConvert.DeserializeObject<List<FreqUnit>>(json);
+
+        return result ?? new List<FreqUnit>();
     }
 }
 
-
-public class KanaObjList
+public class FreqUnit
 {
-    public List<KanaObj> KanaObjs { get; set; } = new();
+    [JsonProperty("Hiragana")]
+    public required string Kana { get; set; }
+    [JsonProperty("Occurrence")]
+    public int Frequency { get; set; }
 }
 
 public class KanaObj
@@ -81,7 +154,7 @@ public class KanaObj
 
 public class KanaUnit
 {
-    public required string Kana { get; set; }
+    public required string Hiragana { get; set; }
     public required string Katakana { get; set; }
     public required string Romaji { get; set; }
     public int? Frequency { get; set; }

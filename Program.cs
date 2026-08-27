@@ -14,4 +14,7 @@ using WordSearchGenJapanese.Helpers;
 
 // Console.WriteLine("new puzzle created");
 
-KanaConversions.TestConversion();
+Console.WriteLine("start running project...");
+var conversions = new KanaConversions();
+await conversions.TestConversion();
+Console.WriteLine("...program ended");

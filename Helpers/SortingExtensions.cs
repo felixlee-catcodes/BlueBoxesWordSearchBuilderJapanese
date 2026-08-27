@@ -20,7 +20,7 @@ static class SortingExtensions
         return items.OrderByDescending(word => word.Sum(ScoreLetter)).ToList();
     }
 
-    //NEEDS ADAPTATION FOR HIRAGANA & KATAKANA 
+    //!!!NEEDS ADAPTATION FOR HIRAGANA & KATAKANA 
     //Pull in LIST OF CHARS/SYMBOLS FROM JSON FILES??
     private static int ScoreLetter(char letter)
     {
