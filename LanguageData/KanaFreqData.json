@@ -1,0 +1,662 @@
+[
+  {
+    "Hiragana": "い",
+    "Katakana": "イ",
+    "Romaji": "i",
+    "Frequency": 5943
+  },
+  {
+    "Hiragana": "ん",
+    "Katakana": "ン",
+    "Romaji": "n",
+    "Frequency": 3682
+  },
+  {
+    "Hiragana": "か",
+    "Katakana": "カ",
+    "Romaji": "ka",
+    "Frequency": 3590
+  },
+  {
+    "Hiragana": "う",
+    "Katakana": "ウ",
+    "Romaji": "u",
+    "Frequency": 3551
+  },
+  {
+    "Hiragana": "た",
+    "Katakana": "タ",
+    "Romaji": "ta",
+    "Frequency": 3489
+  },
+  {
+    "Hiragana": "の",
+    "Katakana": "ノ",
+    "Romaji": "no",
+    "Frequency": 3334
+  },
+  {
+    "Hiragana": "は",
+    "Katakana": "ハ",
+    "Romaji": "ha",
+    "Frequency": 3331
+  },
+  {
+    "Hiragana": "し",
+    "Katakana": "シ",
+    "Romaji": "shi",
+    "Frequency": 2828
+  },
+  {
+    "Hiragana": "に",
+    "Katakana": "ニ",
+    "Romaji": "ni",
+    "Frequency": 2388
+  },
+  {
+    "Hiragana": "を",
+    "Katakana": "ヲ",
+    "Romaji": "wo",
+    "Frequency": 2012
+  },
+  {
+    "Hiragana": "く",
+    "Katakana": "ク",
+    "Romaji": "ku",
+    "Frequency": 2011
+  },
+  {
+    "Hiragana": "て",
+    "Katakana": "テ",
+    "Romaji": "te",
+    "Frequency": 2008
+  },
+  {
+    "Hiragana": "が",
+    "Katakana": "ガ",
+    "Romaji": "ga",
+    "Frequency": 1980
+  },
+  {
+    "Hiragana": "こ",
+    "Katakana": "コ",
+    "Romaji": "ko",
+    "Frequency": 1938
+  },
+  {
+    "Hiragana": "な",
+    "Katakana": "ナ",
+    "Romaji": "na",
+    "Frequency": 1856
+  },
+  {
+    "Hiragana": "る",
+    "Katakana": "ル",
+    "Romaji": "ru",
+    "Frequency": 1693
+  },
+  {
+    "Hiragana": "と",
+    "Katakana": "ト",
+    "Romaji": "to",
+    "Frequency": 1631
+  },
+  {
+    "Hiragana": "ま",
+    "Katakana": "マ",
+    "Romaji": "ma",
+    "Frequency": 1500
+  },
+  {
+    "Hiragana": "で",
+    "Katakana": "デ",
+    "Romaji": "de",
+    "Frequency": 1463
+  },
+  {
+    "Hiragana": "き",
+    "Katakana": "キ",
+    "Romaji": "ki",
+    "Frequency": 1433
+  },
+  {
+    "Hiragana": "だ",
+    "Katakana": "ダ",
+    "Romaji": "da",
+    "Frequency": 1428
+  },
+  {
+    "Hiragana": "す",
+    "Katakana": "ス",
+    "Romaji": "su",
+    "Frequency": 1420
+  },
+  {
+    "Hiragana": "れ",
+    "Katakana": "レ",
+    "Romaji": "re",
+    "Frequency": 1415
+  },
+  {
+    "Hiragana": "つ",
+    "Katakana": "ツ",
+    "Romaji": "tsu",
+    "Frequency": 1386
+  },
+  {
+    "Hiragana": "さ",
+    "Katakana": "サ",
+    "Romaji": "sa",
+    "Frequency": 1192
+  },
+  {
+    "Hiragana": "お",
+    "Katakana": "オ",
+    "Romaji": "o",
+    "Frequency": 1111
+  },
+  {
+    "Hiragana": "あ",
+    "Katakana": "ア",
+    "Romaji": "a",
+    "Frequency": 1076
+  },
+  {
+    "Hiragana": "ら",
+    "Katakana": "ラ",
+    "Romaji": "ra",
+    "Frequency": 994
+  },
+  {
+    "Hiragana": "け",
+    "Katakana": "ケ",
+    "Romaji": "ke",
+    "Frequency": 878
+  },
+  {
+    "Hiragana": "も",
+    "Katakana": "モ",
+    "Romaji": "mo",
+    "Frequency": 869
+  },
+  {
+    "Hiragana": "せ",
+    "Katakana": "セ",
+    "Romaji": "se",
+    "Frequency": 826
+  },
+  {
+    "Hiragana": "り",
+    "Katakana": "リ",
+    "Romaji": "ri",
+    "Frequency": 823
+  },
+  {
+    "Hiragana": "わ",
+    "Katakana": "ワ",
+    "Romaji": "wa",
+    "Frequency": 817
+  },
+  {
+    "Hiragana": "ち",
+    "Katakana": "チ",
+    "Romaji": "chi",
+    "Frequency": 761
+  },
+  {
+    "Hiragana": "じ",
+    "Katakana": "ジ",
+    "Romaji": "ji",
+    "Frequency": 718
+  },
+  {
+    "Hiragana": "え",
+    "Katakana": "エ",
+    "Romaji": "e",
+    "Frequency": 713
+  },
+  {
+    "Hiragana": "そ",
+    "Katakana": "ソ",
+    "Romaji": "so",
+    "Frequency": 662
+  },
+  {
+    "Hiragana": "よ",
+    "Katakana": "ヨ",
+    "Romaji": "yo",
+    "Frequency": 590
+  },
+  {
+    "Hiragana": "み",
+    "Katakana": "ミ",
+    "Romaji": "mi",
+    "Frequency": 576
+  },
+  {
+    "Hiragana": "め",
+    "Katakana": "メ",
+    "Romaji": "me",
+    "Frequency": 535
+  },
+  {
+    "Hiragana": "ど",
+    "Katakana": "ド",
+    "Romaji": "do",
+    "Frequency": 466
+  },
+  {
+    "Hiragana": "じょ",
+    "Katakana": "ジョ",
+    "Romaji": "jo",
+    "Frequency": 464
+  },
+  {
+    "Hiragana": "ひ",
+    "Katakana": "ヒ",
+    "Romaji": "hi",
+    "Frequency": 461
+  },
+  {
+    "Hiragana": "ほ",
+    "Katakana": "ホ",
+    "Romaji": "ho",
+    "Frequency": 434
+  },
+  {
+    "Hiragana": "や",
+    "Katakana": "ヤ",
+    "Romaji": "ya",
+    "Frequency": 416
+  },
+  {
+    "Hiragana": "しょ",
+    "Katakana": "ショ",
+    "Romaji": "sho",
+    "Frequency": 416
+  },
+  {
+    "Hiragana": "ね",
+    "Katakana": "ネ",
+    "Romaji": "ne",
+    "Frequency": 350
+  },
+  {
+    "Hiragana": "ご",
+    "Katakana": "ゴ",
+    "Romaji": "go",
+    "Frequency": 350
+  },
+  {
+    "Hiragana": "ふ",
+    "Katakana": "フ",
+    "Romaji": "fu",
+    "Frequency": 342
+  },
+  {
+    "Hiragana": "ろ",
+    "Katakana": "ロ",
+    "Romaji": "ro",
+    "Frequency": 321
+  },
+  {
+    "Hiragana": "ば",
+    "Katakana": "バ",
+    "Romaji": "ba",
+    "Frequency": 289
+  },
+  {
+    "Hiragana": "しゅ",
+    "Katakana": "シュ",
+    "Romaji": "shu",
+    "Frequency": 273
+  },
+  {
+    "Hiragana": "しゃ",
+    "Katakana": "シャ",
+    "Romaji": "sha",
+    "Frequency": 266
+  },
+  {
+    "Hiragana": "きょ",
+    "Katakana": "キョ",
+    "Romaji": "kyo",
+    "Frequency": 264
+  },
+  {
+    "Hiragana": "ぶ",
+    "Katakana": "ブ",
+    "Romaji": "bu",
+    "Frequency": 258
+  },
+  {
+    "Hiragana": "げ",
+    "Katakana": "ゲ",
+    "Romaji": "ge",
+    "Frequency": 237
+  },
+  {
+    "Hiragana": "む",
+    "Katakana": "ム",
+    "Romaji": "mu",
+    "Frequency": 227
+  },
+  {
+    "Hiragana": "べ",
+    "Katakana": "ベ",
+    "Romaji": "be",
+    "Frequency": 217
+  },
+  {
+    "Hiragana": "ゆ",
+    "Katakana": "ユ",
+    "Romaji": "yu",
+    "Frequency": 215
+  },
+  {
+    "Hiragana": "りょ",
+    "Katakana": "リョ",
+    "Romaji": "ryo",
+    "Frequency": 201
+  },
+  {
+    "Hiragana": "へ",
+    "Katakana": "ヘ",
+    "Romaji": "he",
+    "Frequency": 186
+  },
+  {
+    "Hiragana": "び",
+    "Katakana": "ビ",
+    "Romaji": "bi",
+    "Frequency": 181
+  },
+  {
+    "Hiragana": "ぎ",
+    "Katakana": "ギ",
+    "Romaji": "gi",
+    "Frequency": 180
+  },
+  {
+    "Hiragana": "ず",
+    "Katakana": "ズ",
+    "Romaji": "zu",
+    "Frequency": 172
+  },
+  {
+    "Hiragana": "じゅ",
+    "Katakana": "ジュ",
+    "Romaji": "ju",
+    "Frequency": 167
+  },
+  {
+    "Hiragana": "ざ",
+    "Katakana": "ザ",
+    "Romaji": "za",
+    "Frequency": 120
+  },
+  {
+    "Hiragana": "ちょ",
+    "Katakana": "チョ",
+    "Romaji": "cho",
+    "Frequency": 119
+  },
+  {
+    "Hiragana": "ぜ",
+    "Katakana": "ゼ",
+    "Romaji": "ze",
+    "Frequency": 117
+  },
+  {
+    "Hiragana": "ぼ",
+    "Katakana": "ボ",
+    "Romaji": "bo",
+    "Frequency": 110
+  },
+  {
+    "Hiragana": "ぞ",
+    "Katakana": "ゾ",
+    "Romaji": "zo",
+    "Frequency": 106
+  },
+  {
+    "Hiragana": "きゅ",
+    "Katakana": "キュ",
+    "Romaji": "kyu",
+    "Frequency": 96
+  },
+  {
+    "Hiragana": "ちゅ",
+    "Katakana": "チュ",
+    "Romaji": "chu",
+    "Frequency": 91
+  },
+  {
+    "Hiragana": "ぐ",
+    "Katakana": "グ",
+    "Romaji": "gu",
+    "Frequency": 80
+  },
+  {
+    "Hiragana": "ぎょ",
+    "Katakana": "ギョ",
+    "Romaji": "gyo",
+    "Frequency": 75
+  },
+  {
+    "Hiragana": "ぱ",
+    "Katakana": "パ",
+    "Romaji": "pa",
+    "Frequency": 57
+  },
+  {
+    "Hiragana": "ぬ",
+    "Katakana": "ヌ",
+    "Romaji": "nu",
+    "Frequency": 54
+  },
+  {
+    "Hiragana": "づ",
+    "Katakana": "ズ",
+    "Romaji": "zu",
+    "Frequency": 47
+  },
+  {
+    "Hiragana": "にゅ",
+    "Katakana": "ニュ",
+    "Romaji": "nyu",
+    "Frequency": 46
+  },
+  {
+    "Hiragana": "きゃ",
+    "Katakana": "キャ",
+    "Romaji": "kya",
+    "Frequency": 31
+  },
+  {
+    "Hiragana": "ちゃ",
+    "Katakana": "チャ",
+    "Romaji": "cha",
+    "Frequency": 31
+  },
+  {
+    "Hiragana": "ひょ",
+    "Katakana": "ヒョ",
+    "Romaji": "hyo",
+    "Frequency": 25
+  },
+  {
+    "Hiragana": "じゃ",
+    "Katakana": "ジャ",
+    "Romaji": "ja",
+    "Frequency": 25
+  },
+  {
+    "Hiragana": "ぽ",
+    "Katakana": "ポ",
+    "Romaji": "po",
+    "Frequency": 22
+  },
+  {
+    "Hiragana": "ぷ",
+    "Katakana": "プ",
+    "Romaji": "pu",
+    "Frequency": 18
+  },
+  {
+    "Hiragana": "りゅ",
+    "Katakana": "リュ",
+    "Romaji": "ryu",
+    "Frequency": 17
+  },
+  {
+    "Hiragana": "ぴ",
+    "Katakana": "ピ",
+    "Romaji": "pi",
+    "Frequency": 9
+  },
+  {
+    "Hiragana": "ひゃ",
+    "Katakana": "ヒャ",
+    "Romaji": "hya",
+    "Frequency": 9
+  },
+  {
+    "Hiragana": "ぴょ",
+    "Katakana": "ピョ",
+    "Romaji": "pyo",
+    "Frequency": 8
+  },
+  {
+    "Hiragana": "ぺ",
+    "Katakana": "ペ",
+    "Romaji": "pe",
+    "Frequency": 5
+  },
+  {
+    "Hiragana": "みょ",
+    "Katakana": "ミョ",
+    "Romaji": "myo",
+    "Frequency": 4
+  },
+  {
+    "Hiragana": "ぎゅ",
+    "Katakana": "ギュ",
+    "Romaji": "gyu",
+    "Frequency": 4
+  },
+  {
+    "Hiragana": "りゃ",
+    "Katakana": "リャ",
+    "Romaji": "rya",
+    "Frequency": 3
+  },
+  {
+    "Hiragana": "ぎゃ",
+    "Katakana": "ギャ",
+    "Romaji": "gya",
+    "Frequency": 3
+  },
+  {
+    "Hiragana": "みゃ",
+    "Katakana": "ミャ",
+    "Romaji": "mya",
+    "Frequency": 2
+  },
+  {
+    "Hiragana": "ぢ",
+    "Katakana": "ジ",
+    "Romaji": "ji",
+    "Frequency": 1
+  },
+  {
+    "Hiragana": "にょ",
+    "Katakana": "ニョ",
+    "Romaji": "nyo",
+    "Frequency": 1
+  },
+  {
+    "Hiragana": "びゃ",
+    "Katakana": "ビャ",
+    "Romaji": "bya",
+    "Frequency": 1
+  },
+  {
+    "Hiragana": "にょ",
+    "Katakana": "ヒョ",
+    "Romaji": "byo",
+    "Frequency": 1
+  },
+  {
+    "Hiragana": "ゐ",
+    "Katakana": "ヰ",
+    "Romaji": "wi",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "ゑ",
+    "Katakana": "ヱ",
+    "Romaji": "we",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "ゔ",
+    "Katakana": "ヴ",
+    "Romaji": "vu",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "にゃ",
+    "Katakana": "ニャ",
+    "Romaji": "nya",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "ひゅ",
+    "Katakana": "ヒュ",
+    "Romaji": "hyu",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "みゅ",
+    "Katakana": "ミュ",
+    "Romaji": "myu",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "ぢゃ",
+    "Katakana": "ジャ",
+    "Romaji": "ja",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "ぢゅ",
+    "Katakana": "ジュ",
+    "Romaji": "ju",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "ぢょ",
+    "Katakana": "ジョ",
+    "Romaji": "jo",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "びゅ",
+    "Katakana": "ビュ",
+    "Romaji": "byu",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "ぴゃ",
+    "Katakana": "ピャ",
+    "Romaji": "pya",
+    "Frequency": 0
+  },
+  {
+    "Hiragana": "ぴゅ",
+    "Katakana": "ピュ",
+    "Romaji": "pyu",
+    "Frequency": 0
+  }
+]

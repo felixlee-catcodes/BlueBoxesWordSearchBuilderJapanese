@@ -18,32 +18,35 @@ static class SortingExtensions
     /// </summary>
     /// <param name="items"></param>
     /// <returns></returns>
-    public static IList<string> SortByComplexity(this IList<string> items)
-    {
-        return items.OrderByDescending(word => word.Sum(ScoreLetterJP)).ToList();
-    }
+    // public static IList<string> SortByComplexity(this IList<string> items)
+    // {
+    //     return items.OrderByDescending(word => word.Sum(ScoreLetter)).ToList();
+    // }
 
     //SORT BY COMPLEXITY JP VERSION
-    // public static async Task<IList<string>> SortByComplexityJP(this IList<string> words)
-    // {
-    //     var scoredWords = new List<(string Word, int Score)>();
+    public static List<string> SortByComplexityJP(this IList<string> words)
+    {
+        var scoredWords = new List<(string Word, int Score)>();
 
-    //     foreach (string word in words)
-    //     {
-    //         int score = 0;
+        foreach (string word in words)
+        {
+            int wordScore = 0;
+            var chars = word.Split("");
+            foreach (char kana in word)
+            {
+                Console.WriteLine($"current char: {kana}");
+                int kanaScore = ScoreLetterJP(kana);
+                wordScore += kanaScore;
+            }
+            Console.WriteLine($"Word: {word}\tScore: {wordScore}\n");
+            scoredWords.Add((word, wordScore));
+        }
 
-    //         foreach (char kana in word)
-    //         {
-    //             score += ScoreLetterJP(kana);
-    //         }
-    //         scoredWords.Add((word, score));
-    //     }
-
-    //     return scoredWords
-    //     .OrderByDescending(item => item.Score)
-    //     .Select(item => item.Word)
-    //     .ToList();
-    // }
+        return scoredWords
+        .OrderByDescending(item => item.Score)
+        .Select(item => item.Word)
+        .ToList();
+    }
 
     //!!!NEEDS ADAPTATION FOR HIRAGANA & KATAKANA 
     //Pull in LIST OF CHARS/SYMBOLS FROM JSON FILES??
@@ -62,33 +65,30 @@ static class SortingExtensions
 
     private static int ScoreLetterJP(char letter)
     {
-        List<KanaUnit> kanaLookupList = KanaConversions.GetKanaFrequencyList();
-        var mojiChars = CharactersToString(kanaLookupList).ToCharArray();
+        var conversions = new KanaConversions();
+        Console.WriteLine($"current char: {letter.ToString()}");
+        List<KanaUnit> kanaLookupList = conversions.GetKanaFrequencyList();
+        var mojiChars = CharactersToString(kanaLookupList).ToArray();
         var mojiWeights = CharWeights(kanaLookupList);
 
-        int index = Array.IndexOf(mojiChars, letter);
-
+        int index = Array.IndexOf(mojiChars, letter.ToString());
+        Console.WriteLine($"char weight: {mojiWeights[index]}");
         return index >= 0 && index < mojiWeights.Length ? mojiWeights[index] : 0;
     }
 
     //just doing hiragana hard-coded for now, will add katakana/dynamic input later
-    private static string CharactersToString(List<KanaUnit> units)
+    private static string[] CharactersToString(List<KanaUnit> units)
     {
-        string charString = "";
-        foreach (KanaUnit unit in units)
-        {
-            charString += unit.Hiragana;
-        }
-        return charString;
+        return units
+        .Select(unit => unit.Hiragana)
+        .ToArray();
     }
 
     private static int[] CharWeights(List<KanaUnit> units)
     {
-        var weightList = new int[] { };
-        foreach (KanaUnit unit in units)
-        {
-            weightList.Append<int>(unit.Frequency);
-        }
-        return weightList;
+        return units
+        .Select(unit => unit.Frequency)
+        .ToArray();
+
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 
@@ -17,6 +18,8 @@ public class KanaConversions
     private const string HIRAGANA = "hiragana.json";
     private const string KATAKANA = "katakana.json";
     private const string KANAFREQ = "KanaFrequency.json";
+    private const string KANAFREQDATA = "KanaFreqData.json";
+
 
     // public async Task TestConversion()
     // {
@@ -27,15 +30,33 @@ public class KanaConversions
     //     List<KanaUnit> kanaLookupList = await kanaConversions.MergeKanaAndFrequencyLists();
     // }
 
-    // public async Task<List<KanaUnit>> GetKanaFrequencyList2()
-    // {
-    //     return await MergeKanaAndFrequencyLists();
-    // }
-
-    public static List<KanaUnit> GetKanaFrequencyList()
+    public void SaveKanaFreqListToFile()
     {
+        string path = Path.Combine(PATH, "KanaFreqData.json");
         var conversions = new KanaConversions();
-        return conversions.MergeKanaAndFrequencyLists();
+        List<KanaUnit> kanaMasterList = conversions.MergeKanaAndFrequencyLists();
+
+        string serializedList = JsonConvert.SerializeObject(kanaMasterList, Formatting.Indented);
+
+        using (FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write))
+
+
+        using (StreamWriter writer = new StreamWriter(fs))
+        {
+            writer.Write(serializedList);
+        }
+        Console.WriteLine($"JSON data successfully written to {path}");
+    }
+
+    public List<KanaUnit> GetKanaFrequencyList()
+    {
+        string path = Path.Combine(PATH, KANAFREQDATA);
+
+        string json = File.ReadAllText(path);
+
+        var result = JsonConvert.DeserializeObject<List<KanaUnit>>(json);
+
+        return result ?? new List<KanaUnit>();
     }
 
     private List<KanaUnit> MergeKanaAndFrequencyLists()
@@ -58,7 +79,9 @@ public class KanaConversions
             }
 
         }
-        return kanaList;
+        return kanaList
+        .OrderByDescending(unit => unit.Frequency)
+        .ToList();
     }
 
     private List<KanaUnit> MergeHiraAndKata()
