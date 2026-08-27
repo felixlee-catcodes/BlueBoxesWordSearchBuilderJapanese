@@ -1,4 +1,7 @@
-﻿namespace BlueBoxes.WordSearchBuilder.Helpers;
+﻿using System.Reflection.PortableExecutable;
+using WordSearchGenJapanese.Helpers;
+
+namespace BlueBoxes.WordSearchBuilder.Helpers;
 
 static class SortingExtensions
 {
@@ -20,6 +23,28 @@ static class SortingExtensions
         return items.OrderByDescending(word => word.Sum(ScoreLetter)).ToList();
     }
 
+    //SORT BY COMPLEXITY JP VERSION
+    public static async Task<IList<string>> SortByComplexityJP(this IList<string> words)
+    {
+        var scoredWords = new List<(string Word, int Score)>();
+
+        foreach (string word in words)
+        {
+            int score = 0;
+
+            foreach (char kana in word)
+            {
+                score += await ScoreLetterJP(kana);
+            }
+            scoredWords.Add((word, score));
+        }
+
+        return scoredWords
+        .OrderByDescending(item => item.Score)
+        .Select(item => item.Word)
+        .ToList();
+    }
+
     //!!!NEEDS ADAPTATION FOR HIRAGANA & KATAKANA 
     //Pull in LIST OF CHARS/SYMBOLS FROM JSON FILES??
     private static int ScoreLetter(char letter)
@@ -33,5 +58,37 @@ static class SortingExtensions
 
         return index >= 0 && index < weights.Length ? weights[index] : 0;
 
+    }
+
+    private static async Task<int> ScoreLetterJP(char letter)
+    {
+        List<KanaUnit> kanaLookupList = await KanaConversions.GetKanaFrequencyList();
+        var mojiChars = CharactersToString(kanaLookupList).ToCharArray();
+        var mojiWeights = CharWeights(kanaLookupList);
+
+        int index = Array.IndexOf(mojiChars, letter);
+
+        return index >= 0 && index < mojiWeights.Length ? mojiWeights[index] : 0;
+    }
+
+    //just doing hiragana hard-coded for now, will add katakana/dynamic input later
+    private static string CharactersToString(List<KanaUnit> units)
+    {
+        string charString = "";
+        foreach (KanaUnit unit in units)
+        {
+            charString += unit.Hiragana;
+        }
+        return charString;
+    }
+
+    private static int[] CharWeights(List<KanaUnit> units)
+    {
+        var weightList = new int[] { };
+        foreach (KanaUnit unit in units)
+        {
+            weightList.Append<int>(unit.Frequency);
+        }
+        return weightList;
     }
 }

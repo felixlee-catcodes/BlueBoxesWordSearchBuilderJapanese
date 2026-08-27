@@ -2,15 +2,15 @@
 using BlueBoxes.WordSearchBuilder.WordPlacers;
 using WordSearchGenJapanese.Helpers;
 
-// const int GRID_SIZE = 7;
-// var builder = new WordSearchBuilder(GRID_SIZE, GRID_SIZE);
+const int GRID_SIZE = 5;
+var builder = new WordSearchBuilder(GRID_SIZE, GRID_SIZE);
 
-// builder
-// .WithDifficulty(Difficulty.Easy)
-// .WithWords("apple", "orange", "melon");
+builder
+.WithDifficulty(Difficulty.Easy)
+.WithWords("pea", "plum", "mint", "fig");
 
-// var newPuzzle = builder.Build();
-// Console.WriteLine(newPuzzle.Puzzle);
+var newPuzzle = builder.Build();
+Console.WriteLine(newPuzzle.Puzzle);
 
 // Console.WriteLine("new puzzle created");
 
@@ -20,7 +20,7 @@ using WordSearchGenJapanese.Helpers;
 // Console.WriteLine("...program ended");
 
 
-List<KanaUnit> kanaList2 = await KanaConversions.GetKanaFrequencyList();
+// List<KanaUnit> kanaList2 = await KanaConversions.GetKanaFrequencyList();
 
 
 

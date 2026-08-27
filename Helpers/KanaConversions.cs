@@ -27,10 +27,10 @@ public class KanaConversions
     //     List<KanaUnit> kanaLookupList = await kanaConversions.MergeKanaAndFrequencyLists();
     // }
 
-    // public async Task<List<KanaUnit>> GetKanaFrequencyList()
-    // {
-    //     return await MergeKanaAndFrequencyLists();
-    // }
+    public async Task<List<KanaUnit>> GetKanaFrequencyList2()
+    {
+        return await MergeKanaAndFrequencyLists();
+    }
 
     public static async Task<List<KanaUnit>> GetKanaFrequencyList()
     {
@@ -151,6 +151,6 @@ public class KanaUnit
     public required string Hiragana { get; set; }
     public required string Katakana { get; set; }
     public required string Romaji { get; set; }
-    public int? Frequency { get; set; }
+    public int Frequency { get; set; }
 }
 #endregion
