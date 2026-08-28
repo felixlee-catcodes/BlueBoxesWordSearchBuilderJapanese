@@ -1,5 +1,7 @@
 # About
-This package allow you to build, solve and export wordsearch puzzles in the iPuz json format.
+This package allow you to build, solve and export word search puzzles in the iPuz json format.
+It has been modified to accept Japanese Hiragana words as input, outputting a puzzle filled with random Hiragana characters among the words.
+Can currently support Katakana w/ some minor tweaks. 
 
 Words are be placed at random horizontally, vertically or diagonally both forwards and backwards. The wordsearch can be any size, and the words to be found can be of any length.
 
@@ -8,7 +10,8 @@ The wordsearch builder allows adding words to the wordsearch grid, upon calling 
 
 ```csharp
 var puzzleDef = new WordSearchBuilder(10, 10)
-    .WithWords("Apple", "Orange", "Grape")
+    .WithSpaceFiller(new JapaneseSpaceFiller())
+    .WithWords("きっぷ", "やった", "みます", "きっと", "はしる")
     .Build();
 ```
 
