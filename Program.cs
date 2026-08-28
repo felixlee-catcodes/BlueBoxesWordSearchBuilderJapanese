@@ -25,7 +25,7 @@ List<KanaUnit> kanaList2 = conversions.GetKanaFrequencyList();
 
 
 var builder = new WordSearchBuilder(GRID_SIZE, GRID_SIZE);
-builder.WithWords("にほん", "ねこ", "たまご");
+builder.WithWords("りゅう", "やった", "きん");
 
 
 Console.WriteLine("program ended");

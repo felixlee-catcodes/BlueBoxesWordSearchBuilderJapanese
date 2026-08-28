@@ -658,5 +658,9 @@
     "Katakana": "ピュ",
     "Romaji": "pyu",
     "Frequency": 0
-  }
+  },
+  {"Hiragana": "っ",
+    "Katakana": "ッ",
+    "Romaji": "-",
+    "Frequency": 50}
 ]
