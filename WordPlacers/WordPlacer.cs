@@ -6,11 +6,12 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
 {
     public abstract class WordPlacer
     {
-        public abstract PlacedWord TryPlaceWord(string word, char[][] grid);
+        public abstract PlacedWord TryPlaceWord(string word, string[][] grid);
         public abstract Direction Direction { get; }
         public IWordFormatter WordFormatter { get; set; } = new EnglishWordFormatter();
+        public IKanaWordFormatter KanaFormatter { get; set; } = new JapaneseWordFormatter();
 
-        public static readonly char NullChar = '\0';
+        public static readonly string NullString = "";
 
         public GridCell GetActualGridCell(GridCell startCell, int offset)
         {
@@ -19,13 +20,13 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
             return new GridCell(col, row);
         }
 
-        public char? GetCellValue(GridCell startCell, int offset, char[][] grid)
+        public string? GetCellValue(GridCell startCell, int offset, string[][] grid)
         {
             var cell = GetActualGridCell(startCell, offset);
             return grid[cell.Col][cell.Row];
         }
 
-        public void SetCellValue(GridCell startCell, int offset, char[][] grid, char value)
+        public void SetCellValue(GridCell startCell, int offset, string[][] grid, string value)
         {
             var cell = GetActualGridCell(startCell, offset);
             grid[cell.Col][cell.Row] = value;
@@ -39,7 +40,7 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
         /// <param name="word"></param>
         /// <param name="grid"></param>
         /// <returns></returns>
-        protected PlacedWord FindWordLocation(IList<int> xRange, IList<int> yRange, string word, char[][] grid)
+        protected PlacedWord FindWordLocation(IList<int> xRange, IList<int> yRange, string word, string[][] grid)
         {
             xRange = xRange.Shuffle();
             yRange = yRange.Shuffle();
@@ -48,7 +49,7 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
             var startPos = new GridCell();
 
             //***CAN PROBS SKIP THIS: all it does is makes word CAPS
-            var wordToPlace = WordFormatter.FormatWord(word);
+            var wordToPlace = KanaFormatter.FormatWord(word);
 
             //Find a Valid location
             foreach (var currentCol in xRange)
@@ -69,11 +70,11 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
             //Set Word
             if (placeFound)
             {
-                for (var i = 0; i < wordToPlace.Length; i++)
+                for (var i = 0; i < wordToPlace.Count; i++)
                 {
                     SetCellValue(startPos, i, grid, wordToPlace[i]);
                 }
-                return new PlacedWord(word, wordToPlace.Length, Direction, startPos);
+                return new PlacedWord(word, wordToPlace.Count, Direction, startPos);
             }
             else
             {
@@ -84,12 +85,12 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
         /// <summary>
         /// Tests if a word can be placed at a given location
         /// </summary>
-        protected bool TryPlaceWordLetters(string wordLetters, GridCell start, char[][] grid)
+        protected bool TryPlaceWordLetters(List<string> wordLetters, GridCell start, string[][] grid)
         {
-            for (var i = 0; i < wordLetters.Length; i++)
+            for (var i = 0; i < wordLetters.Count; i++)
             {
                 var cell = GetCellValue(start, i, grid);
-                if (cell != NullChar && cell != wordLetters[i])
+                if (cell != NullString && cell != wordLetters[i])
                     return false;
             }
             return true;

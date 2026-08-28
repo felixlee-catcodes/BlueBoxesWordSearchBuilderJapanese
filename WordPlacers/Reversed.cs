@@ -12,7 +12,7 @@ public class Reversed : WordPlacer
         _placer = placer;
     }
 
-    public override PlacedWord TryPlaceWord(string word, char[][] grid)
+    public override PlacedWord TryPlaceWord(string word, string[][] grid)
     {
         var wordPlaced = _placer.TryPlaceWord(string.Join("", word.Reverse()), grid);
 

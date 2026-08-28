@@ -39,7 +39,7 @@ public class CleanEnglishSpaceFiller : DefaultEnglishSpaceFiller
                         var originalChar = originalGrid[currentCol][currentRow];
 
                         //Letter is not part of a puzzle word
-                        if (originalChar == WordPlacer.NullChar)
+                        if (originalChar.ToString() == WordPlacer.NullString)
                         {
                             grid[currentCol][currentRow] = GetNewRandomLetter(currentChar);
                         }
@@ -57,7 +57,7 @@ public class CleanEnglishSpaceFiller : DefaultEnglishSpaceFiller
 
         while (newLetter == currentLetter)
         {
-            newLetter = GetWeightedRandomLetter();
+            newLetter = GetWeightedRandomLetter().ToCharArray()[0];
         }
         return newLetter;
     }

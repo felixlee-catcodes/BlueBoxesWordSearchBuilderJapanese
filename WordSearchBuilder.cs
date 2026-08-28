@@ -13,7 +13,7 @@ public class WordSearchBuilder
     /// <summary>
     /// Grid of Words Referenced with [Col][Row]
     /// </summary>
-    public char[][] Grid { get; private set; }
+    public string[][] Grid { get; private set; }
     public int Width => Grid.Width();
     public int Height => Grid.Height();
     public List<PlacedWord> Solution { get; } = new List<PlacedWord>();
@@ -25,6 +25,8 @@ public class WordSearchBuilder
 
     public ISpaceFiller SpaceFiller { get; private set; } = new DefaultEnglishSpaceFiller();
 
+    public ISpaceFillerJapanese JPKanaSpaceFiller { get; set; } = new JapaneseSpaceFiller();
+
     /// <summary>
     /// Create a new WordSearchBuilder with a default set of Medium Difficulty WordPlacers
     /// </summary>
@@ -33,7 +35,7 @@ public class WordSearchBuilder
     public WordSearchBuilder(int width, int height)
     {
         //create new empty grid?
-        Grid = GridExtensions.Initialize(width, height, WordPlacer.NullChar);
+        Grid = GridExtensionsJP.Initialize(width, height, WordPlacer.NullString);
         WordPlacers = PlacerSets.GetSet(Difficulty.Medium);
     }
 
@@ -66,9 +68,9 @@ public class WordSearchBuilder
     /// </summary>
     /// <param name="spaceFiller">SpaceFiller</param>
     /// <returns>Current WordSearchBuilder</returns>
-    public WordSearchBuilder WithSpaceFiller(ISpaceFiller spaceFiller)
+    public WordSearchBuilder WithSpaceFiller(ISpaceFillerJapanese spaceFiller)
     {
-        SpaceFiller = spaceFiller;
+        JPKanaSpaceFiller = spaceFiller;
         return this;
     }
 
@@ -121,7 +123,7 @@ public class WordSearchBuilder
     /// <returns>Complete PuzzleDefinition in iPuz format</returns>
     public PuzzleDefinition Build()
     {
-        SpaceFiller.FillSpacesInGrid(Grid);
+        JPKanaSpaceFiller.FillSpacesInGrid(Grid);
 
         var iPuz = new PuzzleDefinition
         {

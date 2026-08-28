@@ -5,7 +5,7 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
 {
     public class SouthEast : WordPlacer
     {
-        public override PlacedWord TryPlaceWord(string word, char[][] grid)
+        public override PlacedWord TryPlaceWord(string word, string[][] grid)
         {
             if (word.Length > grid.Width() || word.Length > grid.Height())
                 return PlacedWord.Empty;
