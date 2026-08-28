@@ -91,26 +91,26 @@ public class WordSearchBuilder
     public WordSearchBuilder WithWords(params string[] words)
     {
         //*** PLUG-IN SortByComplexityJP here 
-        List<string> sortedwords = words.SortByComplexityJP();
-        foreach (var currentWord in sortedwords)
-        {
-            Console.WriteLine($" current word: {currentWord}");
-        }
-
-        // foreach (var currentWord in words.SortByComplexity())
+        // List<string> sortedwords = words.SortByComplexityJP();
+        // foreach (var currentWord in sortedwords)
         // {
-        //     foreach (var placer in WordPlacers.Shuffle())
-        //     {
-        //         var result = placer.TryPlaceWord(currentWord, Grid);
-        //         if (result != PlacedWord.Empty)
-        //         {
-        //             Solution.Add(result);
-        //             break;
-        //         }
-        //     }
+        //     Console.WriteLine($" current word: {currentWord}");
         // }
 
-        // Solution.Sort((a, b) => string.Compare(a?.Word, b?.Word, false, System.Globalization.CultureInfo.CurrentCulture));
+        foreach (var currentWord in words.SortByComplexity())
+        {
+            foreach (var placer in WordPlacers.Shuffle())
+            {
+                var result = placer.TryPlaceWord(currentWord, Grid);
+                if (result != PlacedWord.Empty)
+                {
+                    Solution.Add(result);
+                    break;
+                }
+            }
+        }
+
+        Solution.Sort((a, b) => string.Compare(a?.Word, b?.Word, false, System.Globalization.CultureInfo.CurrentCulture));
         return this;
     }
 

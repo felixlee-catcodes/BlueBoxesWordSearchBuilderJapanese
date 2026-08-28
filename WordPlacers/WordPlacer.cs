@@ -47,6 +47,7 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
             var placeFound = false;
             var startPos = new GridCell();
 
+            //***CAN PROBS SKIP THIS: all it does is makes word CAPS
             var wordToPlace = WordFormatter.FormatWord(word);
 
             //Find a Valid location

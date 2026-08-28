@@ -62,10 +62,10 @@ static class SortingExtensions
     /// </summary>
     /// <param name="items"></param>
     /// <returns></returns>
-    // public static IList<string> SortByComplexity(this IList<string> items)
-    // {
-    //     return items.OrderByDescending(word => word.Sum(ScoreLetter)).ToList();
-    // }
+    public static IList<string> SortByComplexity(this IList<string> items)
+    {
+        return items.OrderByDescending(word => word.Sum(ScoreLetter)).ToList();
+    }
     #endregion
     #region SortByComplexityJP
     //SORT BY COMPLEXITY JP VERSION
@@ -102,18 +102,18 @@ static class SortingExtensions
     #region ScoreLetterEN
     //!!!NEEDS ADAPTATION FOR HIRAGANA & KATAKANA 
     //Pull in LIST OF CHARS/SYMBOLS FROM JSON FILES??
-    // private static int ScoreLetter(char letter)
-    // {
-    //     //This method captures the longest words but also the words with most vowels
-    //     var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-    //     var weights = new int[] { 8, 2, 3, 4, 13, 2, 2, 6, 7, 1, 1, 4, 2, 7, 8, 2, 1, 6, 6, 9, 3, 1, 2, 1, 2, 1 };
+    private static int ScoreLetter(char letter)
+    {
+        //This method captures the longest words but also the words with most vowels
+        var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+        var weights = new int[] { 8, 2, 3, 4, 13, 2, 2, 6, 7, 1, 1, 4, 2, 7, 8, 2, 1, 6, 6, 9, 3, 1, 2, 1, 2, 1 };
 
-    //     letter = char.ToUpper(letter);
-    //     int index = Array.IndexOf(letters, letter);
+        letter = char.ToUpper(letter);
+        int index = Array.IndexOf(letters, letter);
 
-    //     return index >= 0 && index < weights.Length ? weights[index] : 0;
+        return index >= 0 && index < weights.Length ? weights[index] : 0;
 
-    // }
+    }
     #endregion
     #region ScoreLetterJP
     private static int ScoreLetterJP(string letter)

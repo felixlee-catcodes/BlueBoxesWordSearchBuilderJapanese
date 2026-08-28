@@ -1,12 +1,13 @@
-﻿using BlueBoxes.WordSearchBuilder.Helpers;
+using BlueBoxes.WordSearchBuilder.Helpers;
 using BlueBoxes.WordSearchBuilder.WordPlacers;
+using WordSearchGenJapanese.Helpers;
 
 namespace BlueBoxes.WordSearchBuilder.SpaceFillers;
 
 /// <summary>
 /// Fills the grid with letters where it finds empty cells
 /// </summary>
-public class DefaultEnglishSpaceFiller : ISpaceFiller
+public class JapaneseSpaceFiller : ISpaceFiller
 {
     public virtual char[][] FillSpacesInGrid(char[][] grid)
     {
@@ -16,7 +17,7 @@ public class DefaultEnglishSpaceFiller : ISpaceFiller
             {
                 if (grid[col][row] == WordPlacer.NullChar)
                 {
-                    grid[col][row] = GetWeightedRandomLetter();
+                    grid[col][row] = GetWeightedRandomLetter().ToCharArray()[0];
                 }
             }
         }
@@ -29,11 +30,20 @@ public class DefaultEnglishSpaceFiller : ISpaceFiller
     /// https://en.wikipedia.org/wiki/Letter_frequency
     /// </summary>
     /// <returns>Random Letter</returns>
-    protected char GetWeightedRandomLetter()
+    protected string GetWeightedRandomLetter()
     {
+        var conversions = new KanaConversions();
+        List<KanaUnit> kanaLookupList = conversions.GetKanaFrequencyList();
+
         var rnd = new Random();
-        var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-        var weights = new int[] { 8, 2, 3, 4, 13, 2, 2, 6, 7, 1, 1, 4, 2, 7, 8, 2, 1, 6, 6, 9, 3, 1, 2, 1, 2, 1 };
+
+        var mojiChars = kanaLookupList
+        .Select(unit => unit.Hiragana)
+        .ToArray();
+        var weights = kanaLookupList
+        .Select(unit => unit.Frequency)
+        .ToArray();
+
         var total = weights.Sum();
 
         var r = rnd.Next(0, total);
@@ -43,10 +53,10 @@ public class DefaultEnglishSpaceFiller : ISpaceFiller
             sum += weights[i];
             if (r < sum)
             {
-                return letters[i];
+                return mojiChars[i];
             }
         }
-        return letters[0];
+        return mojiChars[0];
     }
 
 }
