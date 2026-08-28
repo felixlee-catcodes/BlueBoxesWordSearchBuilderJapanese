@@ -12,7 +12,13 @@ static class SortingExtensions
         return items.OrderBy(x => rnd.Next(0, 10)).ToList();
     }
     #region TokenizeKana
-    private static List<string> TokenizeKana(string word, List<KanaUnit> units)
+    /// <summary>
+    /// takes in hiragana word [とうきょう] and outputs -> ["と","う","きょ","う"]
+    /// </summary>
+    /// <param name="word"></param>
+    /// <param name="units"></param>
+    /// <returns></returns>
+    public static List<string> TokenizeKana(string word, List<KanaUnit> units)
     {
         var result = new List<string>();
 

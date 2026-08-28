@@ -7,17 +7,17 @@ namespace BlueBoxes.WordSearchBuilder.SpaceFillers;
 /// <summary>
 /// Fills the grid with letters where it finds empty cells
 /// </summary>
-public class JapaneseSpaceFiller : ISpaceFiller
+public class JapaneseSpaceFiller : ISpaceFillerJapanese
 {
-    public virtual char[][] FillSpacesInGrid(char[][] grid)
+    public virtual string[][] FillSpacesInGrid(string[][] grid)
     {
         for (int col = 0; col < grid.Width(); col++)
         {
             for (int row = 0; row < grid.Height(); row++)
             {
-                if (grid[col][row] == WordPlacer.NullChar)
+                if (grid[col][row] == WordPlacer.NullString)
                 {
-                    grid[col][row] = GetWeightedRandomLetter().ToCharArray()[0];
+                    grid[col][row] = GetWeightedRandomLetter();
                 }
             }
         }

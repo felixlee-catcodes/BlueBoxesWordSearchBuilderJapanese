@@ -1,5 +1,57 @@
 ﻿namespace BlueBoxes.WordSearchBuilder.Helpers
 {
+    public static class GridExtensionsJP
+    {
+        //Grid is structured as [col][row]
+        public static int Width(this string[][] grid)
+        {
+            return grid.Length;
+        }
+
+        public static int Height(this string[][] grid)
+        {
+            return grid[0].Length;
+        }
+
+        public static string[][] Initialize(int width, int height, string emptystring)
+        {
+            var grid = new string[width][];
+
+            for (int col = 0; col < width; col++)
+            {
+                grid[col] = new string[height];
+
+                for (int row = 0; row < height; row++)
+                {
+                    grid[col][row] = emptystring;
+                }
+            }
+
+            return grid;
+        }
+
+        public static string[][] DeepClone(this string[][] source)
+        {
+            if (source == null)
+            {
+                return new string[0][];
+            }
+
+            string[][] clone = new string[source.Length][];
+            for (int i = 0; i < source.Length; i++)
+            {
+                clone[i] = new string[source[i].Length];
+                for (int j = 0; j < source[i].Length; j++)
+                {
+                    clone[i][j] = source[i][j];
+                }
+            }
+
+            return clone;
+        }
+
+    }
+
     public static class GridExtensions
     {
         //Grid is structured as [col][row]

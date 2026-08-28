@@ -14,9 +14,10 @@ public class DefaultEnglishSpaceFiller : ISpaceFiller
         {
             for (int row = 0; row < grid.Height(); row++)
             {
-                if (grid[col][row] == WordPlacer.NullChar)
+
+                if (grid[col][row].ToString() == WordPlacer.NullString)
                 {
-                    grid[col][row] = GetWeightedRandomLetter();
+                    grid[col][row] = GetWeightedRandomLetter().ToCharArray()[0];
                 }
             }
         }
@@ -29,10 +30,10 @@ public class DefaultEnglishSpaceFiller : ISpaceFiller
     /// https://en.wikipedia.org/wiki/Letter_frequency
     /// </summary>
     /// <returns>Random Letter</returns>
-    protected char GetWeightedRandomLetter()
+    protected string GetWeightedRandomLetter()
     {
         var rnd = new Random();
-        var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+        var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".Split("");
         var weights = new int[] { 8, 2, 3, 4, 13, 2, 2, 6, 7, 1, 1, 4, 2, 7, 8, 2, 1, 6, 6, 9, 3, 1, 2, 1, 2, 1 };
         var total = weights.Sum();
 
