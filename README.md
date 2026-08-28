@@ -1,9 +1,9 @@
 # About
 This package allow you to build, solve and export word search puzzles in the iPuz json format.
 It has been modified to accept Japanese Hiragana words as input, outputting a puzzle filled with random Hiragana characters among the words.
-Can currently support Katakana w/ some minor tweaks. 
+Can currently support Katakana w/ some minor tweaks. Future support for Kanji and mixed Kana is anticipated.
 
-Words are be placed at random horizontally, vertically or diagonally both forwards and backwards. The wordsearch can be any size, and the words to be found can be of any length.
+Words are be placed at random horizontally, vertically or diagonally both forwards and backwards. The word search can be any size, and the words to be found can be of any length.
 
 # How to Use
 The wordsearch builder allows adding words to the wordsearch grid, upon calling `Build` it fills the spaces with random letters.
